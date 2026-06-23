@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 
 function DashboardMockup({ locale }: { locale: Locale }) {
   return (
-    <div className="mx-auto w-full max-w-[620px]">
+    <div className="mx-auto w-full max-w-[760px]">
       <img
         src="/hero-dashboard-laptop.png"
         alt={locale === "en" ? "Laptop showing Bridge Workflow Studio workflow dashboard" : "Bridge Workflow Studio workflow dashboard on a laptop"}
@@ -205,24 +205,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#f7fbff_0%,#ffffff_48%,#eaf7fb_100%)]">
-        <div className="mx-auto grid max-w-[1280px] items-center gap-10 px-5 py-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-6 lg:pb-[72px] lg:pt-20">
-          <div className="max-w-[680px]">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-teal">{hero.eyebrow}</p>
-            <h1 className="mt-5 max-w-[620px] text-[clamp(42px,5vw,68px)] font-black leading-[1.05] text-[#0D1B2A]">{hero.title}</h1>
-            <p className="mt-6 max-w-[560px] text-xl leading-[1.6] text-slate-700">{hero.subtitle}</p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        <div className="mx-auto grid max-w-[1480px] items-center gap-10 px-5 py-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 lg:px-6 lg:py-14">
+          <div className="max-w-[600px]">
+            <p className="text-[15px] font-black uppercase tracking-[0.18em] text-teal">{hero.eyebrow}</p>
+            <h1 className="mt-4 max-w-[580px] text-[clamp(38px,3.8vw,56px)] font-black leading-[1.06] text-[#0D1B2A]">{hero.title}</h1>
+            <p className="mt-5 max-w-[540px] text-lg leading-[1.55] text-slate-700">{hero.subtitle}</p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {t.home.badges.map((badge) => (
                 <div key={badge} className="flex items-start gap-2.5">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal/10 text-[11px] font-black text-teal ring-1 ring-teal/20">✓</span>
-                  <span className="text-sm font-bold leading-5 text-ocean">{badge}</span>
+                  <span className="text-[13px] font-bold leading-5 text-ocean">{badge}</span>
                 </div>
               ))}
             </div>
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Link href={`/${locale}/book`} className="rounded-md bg-teal px-7 py-3.5 text-center font-black text-white shadow-lg shadow-teal/15 hover:bg-ocean">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href={`/${locale}/book`} className="rounded-md bg-teal px-6 py-3 text-center font-black text-white shadow-lg shadow-teal/15 hover:bg-ocean">
                 {locale === "en" ? "Book Free Consultation" : "预约免费咨询"}
               </Link>
-              <Link href={`/${locale}/services`} className="rounded-md border border-[#086fd6] bg-white px-7 py-3.5 text-center font-black text-[#086fd6] shadow-sm hover:border-teal hover:text-teal">
+              <Link href={`/${locale}/services`} className="rounded-md border border-[#086fd6] bg-white px-6 py-3 text-center font-black text-[#086fd6] shadow-sm hover:border-teal hover:text-teal">
                 {t.common.explore}
               </Link>
             </div>
