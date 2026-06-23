@@ -8,7 +8,7 @@ export function Footer({ locale }: { locale: Locale }) {
   const industries = t.industries.items.slice(0, 6);
 
   return (
-    <footer className="border-t border-slate-200 bg-ink text-white">
+    <footer className="border-t border-slate-200 bg-[#102A43] text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
         <div>
           <p className="text-xl font-bold">Bridge Workflow Studio</p>

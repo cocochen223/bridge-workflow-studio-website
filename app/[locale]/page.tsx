@@ -29,7 +29,7 @@ function TrustStrip({ locale }: { locale: Locale }) {
       : ["中英双语服务", "专注中小企业", "服务安省与大多地区", "重视落地执行", "长期合作支持"];
 
   return (
-    <section className="bg-[#0D1B2A] py-7 text-white">
+    <section className="bg-[#102A43] py-7 text-white">
       <div className="mx-auto grid max-w-[1480px] gap-5 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-5">
         {items.map((item, index) => (
           <div key={item} className="flex items-center gap-3">
@@ -153,7 +153,7 @@ function ConsultationCta({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-[#0D1B2A] text-white shadow-2xl shadow-slate-900/20">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-[#102A43] text-white shadow-2xl shadow-slate-900/20">
         <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
           <div className="p-8 sm:p-10 lg:p-12">
             <p className="text-sm font-bold uppercase tracking-wide text-teal-100">Book a Free Consultation</p>
@@ -176,7 +176,7 @@ function ConsultationCta({ locale }: { locale: Locale }) {
               alt={locale === "en" ? "Consultation call" : "商务咨询预约"}
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A] via-[#0D1B2A]/20 to-transparent lg:bg-gradient-to-l" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#102A43] via-[#102A43]/20 to-transparent lg:bg-gradient-to-l" />
           </div>
         </div>
       </div>

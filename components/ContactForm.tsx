@@ -19,7 +19,7 @@ export function ContactForm({ locale, title }: { locale: Locale; title: string }
             </div>
           ))}
         </div>
-        <div className="mt-4 rounded-xl bg-ink p-4 text-white">
+        <div className="mt-4 rounded-xl bg-[#102A43] p-4 text-white">
           <p className="font-semibold">{site.location}</p>
           <a className="mt-2 block text-sm font-bold text-teal-200 hover:text-white" href={`mailto:${site.email}`}>
             {site.email}
