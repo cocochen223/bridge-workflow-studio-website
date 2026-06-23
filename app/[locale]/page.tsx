@@ -11,107 +11,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 }
 
 function DashboardMockup({ locale }: { locale: Locale }) {
-  const labels =
-    locale === "en"
-      ? {
-          title: "Workflow Dashboard",
-          newLeads: "New Leads",
-          followUps: "Follow-ups",
-          automations: "Automations",
-          impact: "Revenue Impact",
-          activity: "Recent Activity",
-          chart: "Leads Over Time",
-          channels: "Top Channels",
-          menu: ["Overview", "Leads", "Follow-ups", "Automation", "CRM", "AI Assistant", "Reports", "Settings"],
-          activityItems: ["New lead", "Follow-up sent", "Reminder sent", "Quote generated"]
-        }
-      : {
-          title: "业务流程面板",
-          newLeads: "新线索",
-          followUps: "待跟进",
-          automations: "自动化",
-          impact: "业务影响",
-          activity: "最近动态",
-          chart: "线索趋势",
-          channels: "主要渠道",
-          menu: ["总览", "线索", "跟进", "自动化", "CRM", "AI 助手", "报表", "设置"],
-          activityItems: ["收到新咨询", "已发送跟进", "已创建提醒", "已生成报价"]
-        };
-
   return (
-    <div className="relative mx-auto w-full max-w-[620px] overflow-visible rounded-2xl border border-slate-200 bg-slate-100 shadow-lg shadow-[#0D1B2A]/10">
+    <div className="mx-auto w-full max-w-[620px]">
       <img
-        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85"
-        alt={locale === "en" ? "Professional office workspace" : "专业办公场景"}
-        className="absolute inset-0 h-full w-full object-cover"
+        src="/hero-dashboard-laptop.png"
+        alt={locale === "en" ? "Laptop showing Bridge Workflow Studio workflow dashboard" : "Bridge Workflow Studio workflow dashboard on a laptop"}
+        className="h-auto w-full rounded-2xl object-contain shadow-lg shadow-[#0D1B2A]/12"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/45 to-[#e7f6fb]/80" />
-      <div className="relative z-10 m-5 grid overflow-visible rounded-2xl border border-slate-300/70 bg-white/95 shadow-lg shadow-[#0D1B2A]/10 backdrop-blur lg:grid-cols-[128px_1fr]">
-        <aside className="hidden bg-[#0D1B2A] p-4 text-white lg:block">
-          <div className="font-bold">Bridge</div>
-          <div className="text-xs text-slate-300">Workflow Studio</div>
-          <div className="mt-5 grid gap-1 text-xs">
-            {labels.menu.slice(0, 7).map((item, index) => (
-              <div key={item} className={index === 0 ? "rounded-lg bg-white/12 px-3 py-2 font-bold" : "rounded-lg px-3 py-2 text-slate-300"}>
-                {item}
-              </div>
-            ))}
-          </div>
-        </aside>
-        <div className="min-w-0 bg-[#F6F8FB] p-4">
-          <div className="flex items-center justify-between rounded-xl bg-white px-4 py-3 shadow-sm">
-            <h2 className="text-base font-black text-ink">{labels.title}</h2>
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal text-xs font-bold text-white">B</span>
-          </div>
-          <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {[
-              [labels.newLeads, "24", "+18%"],
-              [labels.followUps, "12", locale === "en" ? "Due today" : "今日待办"],
-              [labels.automations, "8", "Active"],
-              [labels.impact, "+23%", locale === "en" ? "vs last month" : "较上月"]
-            ].map(([title, value, note]) => (
-              <div key={title} className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
-                <p className="text-xs font-bold text-ink">{title}</p>
-                <div className="mt-3 flex items-end justify-between">
-                  <p className="text-2xl font-black text-ocean">{value}</p>
-                  <p className="text-xs font-bold text-teal">{note}</p>
-                </div>
-              </div>
-            ))}
-            <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm xl:row-span-2">
-              <p className="text-xs font-bold text-ink">{labels.activity}</p>
-              <div className="mt-3 grid gap-2 text-xs text-slate-600">
-                {labels.activityItems.map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <span className="h-7 w-7 rounded-full bg-teal/10 ring-1 ring-teal/20" />
-                    <span className="font-semibold">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm sm:col-span-2">
-              <p className="text-xs font-bold text-ink">{labels.chart}</p>
-              <svg viewBox="0 0 520 120" className="mt-2 h-20 w-full">
-                <path d="M0 92 C45 70 72 78 104 58 C138 36 160 86 200 66 C236 48 245 36 282 54 C322 74 340 22 382 42 C424 62 430 82 472 46 C494 28 508 30 520 18" fill="none" stroke="#147C72" strokeWidth="5" />
-                <path d="M0 92 C45 70 72 78 104 58 C138 36 160 86 200 66 C236 48 245 36 282 54 C322 74 340 22 382 42 C424 62 430 82 472 46 C494 28 508 30 520 18 L520 120 L0 120 Z" fill="#147C72" opacity="0.12" />
-              </svg>
-            </div>
-            <div className="hidden rounded-xl border border-slate-200 bg-white p-3 shadow-sm xl:block">
-              <p className="text-xs font-bold text-ink">{labels.channels}</p>
-              <div className="mt-3 flex items-center gap-4">
-                <div className="h-16 w-16 rounded-full bg-[conic-gradient(#086fd6_0_45%,#147C72_45%_75%,#18B37E_75%_90%,#cbd5e1_90%_100%)]" />
-                <div className="grid gap-1 text-xs font-semibold text-slate-600">
-                  <span>Website 45%</span>
-                  <span>Google 30%</span>
-                  <span>Referral 15%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="mx-auto h-3 w-[70%] rounded-b-2xl bg-gradient-to-b from-slate-300 to-slate-400" />
-      <div className="mx-auto h-1.5 w-[42%] rounded-b-full bg-slate-400/70" />
     </div>
   );
 }
