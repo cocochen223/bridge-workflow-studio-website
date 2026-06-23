@@ -39,14 +39,14 @@ function DashboardMockup({ locale }: { locale: Locale }) {
         };
 
   return (
-    <div className="relative min-h-[360px] overflow-hidden rounded-3xl border border-white/80 bg-slate-100 shadow-xl shadow-[#0D1B2A]/10">
+    <div className="relative mx-auto w-full max-w-[620px] overflow-visible rounded-2xl border border-slate-200 bg-slate-100 shadow-lg shadow-[#0D1B2A]/10">
       <img
         src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85"
         alt={locale === "en" ? "Professional office workspace" : "专业办公场景"}
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/45 to-[#e7f6fb]/80" />
-      <div className="absolute bottom-10 left-5 right-5 top-10 z-10 grid overflow-hidden rounded-2xl border border-slate-300/70 bg-white/95 shadow-xl shadow-[#0D1B2A]/15 backdrop-blur lg:left-9 lg:right-8 lg:grid-cols-[138px_1fr]">
+      <div className="relative z-10 m-5 grid overflow-visible rounded-2xl border border-slate-300/70 bg-white/95 shadow-lg shadow-[#0D1B2A]/10 backdrop-blur lg:grid-cols-[128px_1fr]">
         <aside className="hidden bg-[#0D1B2A] p-4 text-white lg:block">
           <div className="font-bold">Bridge</div>
           <div className="text-xs text-slate-300">Workflow Studio</div>
@@ -110,8 +110,8 @@ function DashboardMockup({ locale }: { locale: Locale }) {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-6 left-1/2 z-0 h-4 w-[70%] -translate-x-1/2 rounded-b-2xl bg-gradient-to-b from-slate-300 to-slate-400 shadow-lg shadow-[#0D1B2A]/15" />
-      <div className="absolute bottom-4 left-1/2 z-0 h-1.5 w-[42%] -translate-x-1/2 rounded-b-full bg-slate-400/70" />
+      <div className="mx-auto h-3 w-[70%] rounded-b-2xl bg-gradient-to-b from-slate-300 to-slate-400" />
+      <div className="mx-auto h-1.5 w-[42%] rounded-b-full bg-slate-400/70" />
     </div>
   );
 }
@@ -298,12 +298,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
 
   return (
     <>
-      <section className="overflow-hidden bg-[linear-gradient(135deg,#f7fbff_0%,#ffffff_48%,#eaf7fb_100%)]">
-        <div className="mx-auto grid max-w-[1440px] items-center gap-12 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:py-16">
+      <section className="bg-[linear-gradient(135deg,#f7fbff_0%,#ffffff_48%,#eaf7fb_100%)]">
+        <div className="mx-auto grid max-w-[1280px] items-center gap-10 px-5 py-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-6 lg:pb-[72px] lg:pt-20">
           <div className="max-w-[680px]">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-teal">{hero.eyebrow}</p>
-            <h1 className="mt-5 text-4xl font-black leading-[1.05] text-[#0D1B2A] sm:text-5xl lg:text-[3.55rem] xl:text-[3.75rem]">{hero.title}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">{hero.subtitle}</p>
+            <h1 className="mt-5 max-w-[620px] text-[clamp(42px,5vw,68px)] font-black leading-[1.05] text-[#0D1B2A]">{hero.title}</h1>
+            <p className="mt-6 max-w-[560px] text-xl leading-[1.6] text-slate-700">{hero.subtitle}</p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {t.home.badges.map((badge) => (
                 <div key={badge} className="flex items-start gap-2.5">
@@ -334,7 +334,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
           locale={locale}
           learnMore={t.common.learnMore}
           painLabel={locale === "en" ? "Common issues" : "常见问题"}
-          solutionLabel={locale === "en" ? "Solutions" : "解决方案"}
+          solutionLabel={locale === "en" ? "Popular Solutions" : "常用解决方案"}
         />
       </Section>
 

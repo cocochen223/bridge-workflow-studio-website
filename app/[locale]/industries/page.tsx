@@ -22,13 +22,13 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
           <p className="mt-3 max-w-3xl text-lg leading-8 text-slate-700">{t.subtitle}</p>
         </div>
       </section>
-      <Section title={locale === "en" ? "Common issues and practical solutions" : "常见问题与实用方案"}>
+      <Section title={locale === "en" ? "Industry Solutions" : "行业解决方案"}>
         <IndustryCards
           items={t.items}
           locale={locale}
           learnMore={copy[locale].common.learnMore}
           painLabel={locale === "en" ? "Pain points" : "常见痛点"}
-          solutionLabel={locale === "en" ? "Solutions" : "示例方案"}
+          solutionLabel={locale === "en" ? "Popular Solutions" : "常用解决方案"}
         />
       </Section>
     </>

@@ -96,7 +96,7 @@ export function IndustryCards({
       {items.map((item, index) => (
         <article
           key={item.title}
-          className="group flex min-h-[520px] flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-900/10"
+          className="group flex min-h-[390px] flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-900/10"
         >
           <div className="relative h-40 overflow-hidden bg-slate-100">
             <img
@@ -110,18 +110,7 @@ export function IndustryCards({
           <div className="flex flex-1 flex-col p-5">
             <h3 className="text-xl font-bold leading-tight text-ocean">{item.title}</h3>
             <p className="mt-2 min-h-[48px] text-[13px] leading-6 text-slate-600">{item.intro}</p>
-            <div className="mt-4 grid flex-1 gap-4 border-t border-slate-200 pt-4">
-              <div>
-                <p className="text-[11px] font-black uppercase tracking-wide text-slate-500">{painLabel}</p>
-                <ul className="mt-2.5 space-y-2 text-[13px] leading-5 text-slate-700">
-                  {item.pains.slice(0, 3).map((pain) => (
-                    <li key={pain} className="flex gap-2.5">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
-                      <span>{pain}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="mt-4 grid flex-1 border-t border-slate-200 pt-4">
               <div>
                 <p className="text-[11px] font-black uppercase tracking-wide text-ocean">{solutionLabel}</p>
                 <ul className="mt-2.5 space-y-2 text-[13px] leading-5 text-slate-700">
