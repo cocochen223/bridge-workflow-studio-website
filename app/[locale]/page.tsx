@@ -39,19 +39,27 @@ function DashboardMockup({ locale }: { locale: Locale }) {
         };
 
   return (
-    <div className="relative min-h-[390px] overflow-hidden rounded-2xl border border-white/80 bg-slate-100 shadow-2xl shadow-[#0D1B2A]/20">
+    <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] border border-white/80 bg-slate-100 shadow-2xl shadow-[#0D1B2A]/20">
       <img
         src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85"
         alt={locale === "en" ? "Professional office workspace" : "专业办公场景"}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/45 to-white/85" />
-      <div className="absolute bottom-6 left-6 right-6 top-8 grid overflow-hidden rounded-2xl border border-white/80 bg-white/95 shadow-2xl shadow-[#0D1B2A]/25 backdrop-blur lg:left-24 lg:grid-cols-[132px_1fr]">
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/35 to-[#dff4fb]/85" />
+      <div className="absolute left-5 right-5 top-6 z-10 flex items-center justify-between">
+        <div className="rounded-full border border-white/70 bg-white/85 px-4 py-2 text-xs font-black uppercase tracking-wide text-teal shadow-sm backdrop-blur">
+          Live workflow view
+        </div>
+        <div className="hidden rounded-full border border-white/70 bg-white/85 px-4 py-2 text-xs font-bold text-slate-600 shadow-sm backdrop-blur sm:block">
+          CRM + Follow-up + AI
+        </div>
+      </div>
+      <div className="absolute bottom-12 left-5 right-5 top-16 z-10 grid overflow-hidden rounded-[1.8rem] border-[10px] border-[#071827] bg-white/95 shadow-2xl shadow-[#0D1B2A]/35 backdrop-blur lg:left-12 lg:right-8 lg:grid-cols-[150px_1fr]">
         <aside className="hidden bg-[#0D1B2A] p-4 text-white lg:block">
           <div className="font-bold">Bridge</div>
           <div className="text-xs text-slate-300">Workflow Studio</div>
           <div className="mt-5 grid gap-1 text-xs">
-            {labels.menu.map((item, index) => (
+            {labels.menu.slice(0, 7).map((item, index) => (
               <div key={item} className={index === 0 ? "rounded-lg bg-white/12 px-3 py-2 font-bold" : "rounded-lg px-3 py-2 text-slate-300"}>
                 {item}
               </div>
@@ -96,21 +104,22 @@ function DashboardMockup({ locale }: { locale: Locale }) {
                 <path d="M0 92 C45 70 72 78 104 58 C138 36 160 86 200 66 C236 48 245 36 282 54 C322 74 340 22 382 42 C424 62 430 82 472 46 C494 28 508 30 520 18 L520 120 L0 120 Z" fill="#147C72" opacity="0.12" />
               </svg>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+            <div className="hidden rounded-xl border border-slate-200 bg-white p-3 shadow-sm xl:block">
               <p className="text-xs font-bold text-ink">{labels.channels}</p>
               <div className="mt-3 flex items-center gap-4">
-                <div className="h-20 w-20 rounded-full bg-[conic-gradient(#086fd6_0_45%,#147C72_45%_75%,#18B37E_75%_90%,#cbd5e1_90%_100%)]" />
-                <div className="grid gap-2 text-xs font-semibold text-slate-600">
+                <div className="h-16 w-16 rounded-full bg-[conic-gradient(#086fd6_0_45%,#147C72_45%_75%,#18B37E_75%_90%,#cbd5e1_90%_100%)]" />
+                <div className="grid gap-1 text-xs font-semibold text-slate-600">
                   <span>Website 45%</span>
                   <span>Google 30%</span>
                   <span>Referral 15%</span>
-                  <span>Other 10%</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div className="absolute bottom-7 left-1/2 z-0 h-5 w-[72%] -translate-x-1/2 rounded-b-[2rem] bg-gradient-to-b from-slate-300 to-slate-500 shadow-2xl shadow-[#0D1B2A]/25" />
+      <div className="absolute bottom-5 left-1/2 z-0 h-2 w-[45%] -translate-x-1/2 rounded-b-full bg-slate-500/70" />
     </div>
   );
 }
@@ -331,6 +340,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
       <Section title={t.home.whoTitle} subtitle={t.industries.subtitle} tone="mist">
         <IndustryCards
           items={t.industries.items.slice(0, 6)}
+          locale={locale}
+          learnMore={t.common.learnMore}
           painLabel={locale === "en" ? "Common issues" : "常见问题"}
           solutionLabel={locale === "en" ? "Solutions" : "解决方案"}
         />

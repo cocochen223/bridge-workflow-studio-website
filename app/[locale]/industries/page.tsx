@@ -25,6 +25,8 @@ export default async function IndustriesPage({ params }: { params: Promise<{ loc
       <Section title={locale === "en" ? "Common issues and practical solutions" : "常见问题与实用方案"}>
         <IndustryCards
           items={t.items}
+          locale={locale}
+          learnMore={copy[locale].common.learnMore}
           painLabel={locale === "en" ? "Pain points" : "常见痛点"}
           solutionLabel={locale === "en" ? "Solutions" : "示例方案"}
         />

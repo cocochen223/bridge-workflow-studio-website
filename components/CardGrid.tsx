@@ -74,6 +74,8 @@ export function ServiceCards({
 
 export function IndustryCards({
   items,
+  locale,
+  learnMore,
   painLabel = "Pain points",
   solutionLabel = "Solutions"
 }: {
@@ -84,50 +86,67 @@ export function IndustryCards({
     readonly pains: readonly string[];
     readonly solutions: readonly string[];
   }[];
+  locale: Locale;
+  learnMore: string;
   painLabel?: string;
   solutionLabel?: string;
 }) {
   return (
     <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {items.map((item, index) => (
-        <article key={item.title} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/10">
-          <div className="relative h-48 overflow-hidden bg-slate-100">
+        <article
+          key={item.title}
+          className="group flex min-h-[620px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-900/10"
+        >
+          <div className="relative h-52 overflow-hidden bg-slate-100">
             <img
               src={industryImages[index % industryImages.length]}
               alt={item.title}
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/5 to-transparent" />
-            <div className="absolute bottom-4 left-4">
-              <IconBadge label={item.icon} />
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/45 via-transparent to-transparent" />
           </div>
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-ocean">{item.title}</h3>
-            <p className="mt-2 min-h-[48px] text-sm leading-6 text-slate-600">{item.intro}</p>
-            <div className="mt-5 grid gap-4">
+          <div className="flex flex-1 flex-col p-6">
+            <div className="flex items-start justify-between gap-4">
+              <h3 className="text-2xl font-bold leading-tight text-ocean">{item.title}</h3>
+              <span className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-black text-teal">
+                {item.icon}
+              </span>
+            </div>
+            <p className="mt-3 min-h-[54px] text-sm leading-7 text-slate-600">{item.intro}</p>
+            <div className="mt-5 grid flex-1 gap-5 border-t border-slate-200 pt-5">
               <div>
                 <p className="text-xs font-black uppercase tracking-wide text-slate-500">{painLabel}</p>
-                <ul className="mt-3 flex flex-wrap gap-2 text-sm text-slate-700">
-                {item.pains.map((pain) => (
-                  <li key={pain} className="rounded-full bg-rose-50 px-3 py-1.5 font-semibold text-rose-800">
-                    {pain}
-                  </li>
-                ))}
+                <ul className="mt-3 space-y-2.5 text-sm leading-6 text-slate-700">
+                  {item.pains.slice(0, 3).map((pain) => (
+                    <li key={pain} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                      <span>{pain}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
-                <p className="text-xs font-black uppercase tracking-wide text-teal">{solutionLabel}</p>
-                <ul className="mt-3 flex flex-wrap gap-2 text-sm text-slate-700">
-                {item.solutions.map((solution) => (
-                  <li key={solution} className="rounded-full bg-teal/10 px-3 py-1.5 font-semibold text-teal">
-                    {solution}
-                  </li>
-                ))}
+                <p className="text-xs font-black uppercase tracking-wide text-ocean">{solutionLabel}</p>
+                <ul className="mt-3 space-y-2.5 text-sm leading-6 text-slate-700">
+                  {item.solutions.slice(0, 3).map((solution) => (
+                    <li key={solution} className="flex gap-3">
+                      <span className="mt-1.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-teal/30 text-[10px] font-black text-teal">
+                        ✓
+                      </span>
+                      <span>{solution}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
+            <Link
+              href={`/${locale}/industries`}
+              className="mt-6 inline-flex w-fit items-center rounded-md border border-slate-300 px-4 py-2 text-sm font-bold text-ocean transition hover:border-teal hover:bg-teal hover:text-white"
+            >
+              {learnMore}
+            </Link>
           </div>
         </article>
       ))}
