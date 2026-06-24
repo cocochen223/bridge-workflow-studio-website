@@ -50,7 +50,7 @@ export function Header({ locale }: { locale: Locale }) {
                 href={item.href}
                 className={
                   isBook
-                    ? "ml-2 rounded-md bg-teal px-5 py-2.5 text-center text-white shadow-lg shadow-teal/20 hover:bg-ocean"
+                    ? "ml-2 rounded-md bg-teal px-5 py-2.5 text-center text-white shadow-lg shadow-teal/20 hover:-translate-y-0.5 hover:bg-ocean"
                   : active
                       ? "rounded-md px-3 py-2 text-center text-[#086fd6]"
                       : "rounded-md px-3 py-2 text-center hover:bg-mist hover:text-[#086fd6]"

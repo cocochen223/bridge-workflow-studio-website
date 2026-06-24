@@ -115,7 +115,7 @@ export function ServiceCards({
       {items.map((item) => (
         <article
           key={item.title}
-          className="group flex min-h-[320px] flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/40 hover:shadow-xl hover:shadow-slate-900/10"
+          className="reveal-card group flex min-h-[320px] flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/40 hover:shadow-xl hover:shadow-slate-900/10"
         >
           <IconBadge label={item.icon} />
           <h3 className="mt-4 text-lg font-bold leading-snug text-ocean">{item.title}</h3>
@@ -128,8 +128,9 @@ export function ServiceCards({
               </li>
             ))}
           </ul>
-          <Link href={`/${locale}/services`} className="mt-auto pt-5 text-sm font-bold text-teal group-hover:text-ocean">
+          <Link href={`/${locale}/services`} className="mt-auto inline-flex w-fit items-center gap-1 pt-5 text-sm font-bold text-teal group-hover:text-ocean">
             {learnMore}
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </article>
       ))}
@@ -161,7 +162,7 @@ export function IndustryCards({
       {items.map((item, index) => (
         <article
           key={item.title}
-          className="group flex min-h-[390px] flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-900/10"
+          className="reveal-card group flex min-h-[390px] flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-slate-900/10"
         >
           <div className="relative h-40 overflow-hidden bg-slate-100">
             <img
@@ -192,9 +193,10 @@ export function IndustryCards({
             </div>
             <Link
               href={`/${locale}/industries`}
-              className="mt-5 inline-flex w-fit items-center text-sm font-bold text-teal transition hover:text-ocean"
+              className="mt-5 inline-flex w-fit items-center gap-1 text-sm font-bold text-teal transition hover:text-ocean"
             >
-              {learnMore} →
+              {learnMore}
+              <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </div>
         </article>

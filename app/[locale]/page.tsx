@@ -29,14 +29,14 @@ function TrustStrip({ locale }: { locale: Locale }) {
       : ["中英双语服务", "专注中小企业", "服务安省与大多地区", "重视落地执行", "长期合作支持"];
 
   return (
-    <section className="bg-[#102A43] py-7 text-white">
-      <div className="mx-auto grid max-w-[1480px] gap-5 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-5">
+    <section className="bg-[#102A43] py-5 text-white">
+      <div className="mx-auto grid max-w-[1480px] gap-4 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-5">
         {items.map((item, index) => (
-          <div key={item} className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/5 text-sm font-black text-teal-100">
+          <div key={item} className="flex items-center gap-2.5">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/5 text-xs font-black text-teal-100">
               {index + 1}
             </span>
-            <p className="font-bold leading-6">{item}</p>
+            <p className="text-sm font-bold leading-5">{item}</p>
           </div>
         ))}
       </div>
@@ -61,13 +61,13 @@ function Stats({ locale }: { locale: Locale }) {
         ];
 
   return (
-    <section className="bg-white py-10">
-      <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+    <section className="bg-white py-7">
+      <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
         {stats.map(([number, title, body]) => (
-          <div key={title} className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm shadow-slate-900/5">
-            <p className="text-4xl font-black text-teal">{number}</p>
-            <h3 className="mt-3 text-lg font-bold text-ink">{title}</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">{body}</p>
+          <div key={title} className="reveal-card rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-slate-900/10">
+            <p className="text-3xl font-black leading-none text-teal">{number}</p>
+            <h3 className="mt-2.5 text-base font-bold text-ink">{title}</h3>
+            <p className="mt-1.5 text-sm leading-5 text-slate-600">{body}</p>
           </div>
         ))}
       </div>
@@ -98,7 +98,7 @@ function CaseStudies({ locale }: { locale: Locale }) {
     <Section title={locale === "en" ? "Case Studies" : "客户案例"} subtitle={locale === "en" ? "Representative project concepts showing how practical systems can support real operations." : "以代表性项目场景展示系统如何支持真实业务运营。"} tone="mist">
       <div className="grid gap-5 md:grid-cols-3">
         {cases.map(([title, body], index) => (
-          <article key={title} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-slate-900/10">
+          <article key={title} className="reveal-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-xl hover:shadow-slate-900/10">
             <div className="h-36 overflow-hidden">
               <img src={images[index]} alt={title} className="h-full w-full object-cover" loading="lazy" />
             </div>
@@ -215,7 +215,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
     <>
       <section className="bg-[linear-gradient(135deg,#f7fbff_0%,#ffffff_48%,#eaf7fb_100%)]">
         <div className="mx-auto grid max-w-[1480px] items-center gap-10 px-5 py-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 lg:px-6 lg:py-14">
-          <div className="max-w-[600px]">
+          <div className="reveal-card max-w-[600px]">
             <p className="text-[15px] font-black uppercase tracking-[0.18em] text-teal">{hero.eyebrow}</p>
             <h1 className="mt-4 max-w-[580px] text-[clamp(38px,3.8vw,56px)] font-black leading-[1.06] text-[#0D1B2A]">{hero.title}</h1>
             <p className="mt-5 max-w-[540px] text-lg leading-[1.55] text-slate-700">{hero.subtitle}</p>
@@ -236,7 +236,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
               </Link>
             </div>
           </div>
-          <DashboardMockup locale={locale} />
+          <div className="reveal-card">
+            <DashboardMockup locale={locale} />
+          </div>
         </div>
       </section>
 
@@ -253,17 +255,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         />
       </Section>
 
-      <section className="bg-[#EEF4F7] py-10">
+      <section className="bg-[#EEF4F7] py-7">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold leading-tight text-ink sm:text-[2.25rem]">{t.home.problemsTitle}</h2>
             <p className="mt-3 text-base leading-7 text-slate-600">{t.home.problemsSubtitle}</p>
           </div>
-        <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {t.home.problems.map((problem, index) => (
-            <article key={problem} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5">
+            <article key={problem} className="reveal-card rounded-2xl border border-slate-200 bg-white p-7 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-slate-900/10">
               <span className="text-sm font-black text-teal">0{index + 1}</span>
-              <p className="mt-4 text-[15px] font-bold leading-6 text-ink">{problem}</p>
+              <p className="mt-3 text-[15px] font-bold leading-6 text-ink">{problem}</p>
             </article>
           ))}
         </div>
