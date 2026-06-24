@@ -25,8 +25,8 @@ function DashboardMockup({ locale }: { locale: Locale }) {
 function TrustStrip({ locale }: { locale: Locale }) {
   const items =
     locale === "en"
-      ? ["Bilingual Service", "Small Business Focused", "Ontario & GTA Focused", "Practical Implementation", "Long-Term Partnership"]
-      : ["中英双语服务", "专注中小企业", "服务安省与大多地区", "重视落地执行", "长期合作支持"];
+      ? ["Bilingual Service", "Small Business Focused", "Remote Collaboration", "Practical Implementation", "Long-Term Partnership"]
+      : ["中英双语服务", "专注中小企业", "支持远程协作", "重视落地执行", "长期合作支持"];
 
   return (
     <section className="bg-[#102A43] py-5 text-white">
@@ -157,14 +157,14 @@ function WhyWorkWithBridge({ locale }: { locale: Locale }) {
     locale === "en"
       ? [
           ["Bilingual Communication", "Clear support for Chinese and English-speaking business owners."],
-          ["Ontario & GTA Focus", "Local context for service businesses, operators, and growing teams."],
+          ["Remote Collaboration Ready", "Clear communication and practical delivery for businesses working online or across locations."],
           ["Small Business Friendly", "Practical scope, budget awareness, and systems your team can use."],
           ["Practical Implementation", "Support that moves from advice into usable workflow improvements."],
           ["Long-Term Partnership", "Systems designed to improve over time as your business grows."]
         ]
       : [
           ["中英双语沟通", "为中文和英文企业主提供清晰、直接、容易理解的沟通支持。"],
-          ["聚焦安省与大多地区", "熟悉本地服务业、运营型企业和成长型团队的实际需求。"],
+          ["支持远程协作", "通过清晰沟通和线上协作，支持不同地区的企业推进项目。"],
           ["适合中小企业", "方案会考虑预算、人手、日常流程和团队实际使用能力。"],
           ["重视落地执行", "不只是给建议，而是帮助把想法变成可使用的业务流程。"],
           ["长期合作支持", "系统会随着业务成长持续优化，而不是一次性完成后就结束。"]
@@ -214,7 +214,7 @@ function ConsultationCta({ locale }: { locale: Locale }) {
                 {site.email}
               </a>
             </div>
-            <p className="mt-6 text-sm text-slate-300">Oakville, Ontario · {locale === "en" ? "Serving GTA & Ontario" : "服务大多地区与安省"}</p>
+            <p className="mt-6 text-sm text-slate-300">{locale === "en" ? "Based in Canada · Remote collaboration worldwide" : "位于加拿大 · 支持远程协作与全球合作"}</p>
           </div>
           <div className="relative min-h-[320px]">
             <img
@@ -238,13 +238,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
       ? {
           eyebrow: "AI - AUTOMATION - DIGITAL TRANSFORMATION",
           title: "AI-Powered Workflow Solutions for Growing Businesses",
-          subtitle: "Helping Ontario businesses automate follow-ups, streamline operations, and build practical digital systems.",
+          subtitle: "Helping growing businesses automate follow-ups, streamline operations, and build practical digital systems.",
           note: "Helping business owners improve follow-up, reduce repetitive work, and build practical digital operations."
         }
       : {
           eyebrow: "AI - 自动化 - 数字化转型",
           title: "为成长型企业打造 AI 流程自动化解决方案",
-          subtitle: "帮助安省企业自动化客户跟进、优化日常运营，并建立真正实用的数字化系统。",
+          subtitle: "帮助成长型企业自动化客户跟进、优化日常运营，并建立真正实用的数字化系统。",
           note: "面向加拿大中小企业主，重视落地、效率和长期可维护性。"
         };
 

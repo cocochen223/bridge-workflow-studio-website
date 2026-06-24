@@ -16,7 +16,7 @@ const titles: Record<string, Record<Locale, string>> = {
 };
 
 const descriptions: Record<Locale, string> = {
-  en: "Bridge Workflow Studio helps Ontario businesses adopt AI, automate workflows, improve customer follow-up, and implement practical digital systems.",
+  en: "Bridge Workflow Studio helps growing businesses adopt AI, automate workflows, improve customer follow-up, and implement practical digital systems.",
   zh: "Bridge Workflow Studio 帮助加拿大中小企业应用 AI、自动化流程、优化客户跟进，并建立实用的数字化系统。"
 };
 

@@ -10,14 +10,14 @@ export const metadata: Metadata = {
     template: "%s | Bridge Workflow Studio"
   },
   description:
-    "Bridge Workflow Studio helps Ontario businesses adopt AI, automate workflows, improve customer follow-up, and implement practical digital systems.",
+    "Bridge Workflow Studio helps growing businesses adopt AI, automate workflows, improve customer follow-up, and implement practical digital systems.",
   openGraph: {
     type: "website",
     url: baseUrl,
     siteName: "Bridge Workflow Studio",
     title: "Bridge Workflow Studio | AI Workflow Automation & Digital Transformation",
     description:
-      "AI workflow automation, CRM, websites, and digital transformation support for Ontario small businesses.",
+      "AI workflow automation, CRM, websites, and digital transformation support for growing service businesses.",
     images: [{ url: "/logo-bridge.png", width: 1200, height: 630 }]
   },
   twitter: {
