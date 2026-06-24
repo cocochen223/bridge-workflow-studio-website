@@ -117,6 +117,41 @@ function CaseStudies({ locale }: { locale: Locale }) {
   );
 }
 
+function AdvantageIcon({ index }: { index: number }) {
+  const common = {
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.8,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const
+  };
+
+  const icons = [
+    <svg key="languages" viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+      <circle {...common} cx="12" cy="12" r="8.5" />
+      <path {...common} d="M3.5 12h17M12 3.5c2.2 2.4 3.3 5.2 3.3 8.5S14.2 18.1 12 20.5M12 3.5C9.8 5.9 8.7 8.7 8.7 12s1.1 6.1 3.3 8.5" />
+    </svg>,
+    <svg key="pin" viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+      <path {...common} d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" />
+      <circle {...common} cx="12" cy="10" r="2.4" />
+    </svg>,
+    <svg key="business" viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+      <path {...common} d="M4 10h16l-1.2-5.5H5.2L4 10Z" />
+      <path {...common} d="M5 10v9h14v-9M8 19v-5h4v5M15 14h2" />
+    </svg>,
+    <svg key="implementation" viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+      <circle {...common} cx="12" cy="12" r="8.5" />
+      <path {...common} d="m8.5 12.2 2.3 2.3 4.9-5" />
+    </svg>,
+    <svg key="partnership" viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+      <path {...common} d="M7.5 12.5 5 10l3.2-3.2a3 3 0 0 1 4.2 0l.6.6.6-.6a3 3 0 0 1 4.2 0L21 10l-2.5 2.5" />
+      <path {...common} d="m8.5 13.5 2.2 2.2a1.5 1.5 0 0 0 2.1 0l2.7-2.7M10 16.8l1.2 1.2a1.5 1.5 0 0 0 2.1 0L17 14.3" />
+    </svg>
+  ];
+
+  return icons[index] ?? icons[0];
+}
+
 function WhyWorkWithBridge({ locale }: { locale: Locale }) {
   const items =
     locale === "en"
@@ -145,9 +180,11 @@ function WhyWorkWithBridge({ locale }: { locale: Locale }) {
       }
     >
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-        {items.map(([title, body]) => (
+        {items.map(([title, body], index) => (
           <article key={title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-teal/10 text-sm font-black text-teal ring-1 ring-teal/20">?</div>
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal/10 text-teal ring-1 ring-teal/20">
+              <AdvantageIcon index={index} />
+            </div>
             <h3 className="mt-4 text-base font-bold leading-snug text-ocean">{title}</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">{body}</p>
           </article>
@@ -255,17 +292,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         />
       </Section>
 
-      <section className="bg-[#EEF4F7] py-7">
+      <section className="bg-[#EEF4F7] py-6">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-[1100px]">
             <h2 className="text-3xl font-bold leading-tight text-ink sm:text-[2.25rem]">{t.home.problemsTitle}</h2>
-            <p className="mt-3 text-base leading-7 text-slate-600">{t.home.problemsSubtitle}</p>
+            <p className="mt-3 max-w-[1100px] whitespace-normal text-xl leading-[1.5] text-slate-600">{t.home.problemsSubtitle}</p>
           </div>
-        <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {t.home.problems.map((problem, index) => (
-            <article key={problem} className="reveal-card rounded-2xl border border-slate-200 bg-white p-7 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-slate-900/10">
-              <span className="text-sm font-black text-teal">0{index + 1}</span>
-              <p className="mt-3 text-[15px] font-bold leading-6 text-ink">{problem}</p>
+            <article key={problem} className="reveal-card min-h-[150px] rounded-2xl border border-slate-200 bg-white px-7 py-6 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-slate-900/10">
+              <span className="text-lg font-black leading-none text-teal">0{index + 1}</span>
+              <p className="mt-2 text-[19px] font-bold leading-[1.4] text-ink">{problem}</p>
             </article>
           ))}
         </div>
