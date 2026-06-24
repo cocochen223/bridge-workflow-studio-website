@@ -48,6 +48,8 @@ export function Header({ locale }: { locale: Locale }) {
               <Link
                 key={item.href}
                 href={item.href}
+                target={isBook ? "_blank" : undefined}
+                rel={isBook ? "noopener noreferrer" : undefined}
                 className={
                   isBook
                     ? "ml-2 rounded-md bg-teal px-5 py-2.5 text-center text-white shadow-lg shadow-teal/20 hover:-translate-y-0.5 hover:bg-ocean"
@@ -73,6 +75,8 @@ export function Header({ locale }: { locale: Locale }) {
           <Link
             key={item.href}
             href={item.href}
+            target={item.key === "book" ? "_blank" : undefined}
+            rel={item.key === "book" ? "noopener noreferrer" : undefined}
             className={item.key === "book" ? "whitespace-nowrap rounded bg-teal px-3 py-2 text-white" : "whitespace-nowrap rounded px-2 py-2 hover:bg-mist hover:text-teal"}
           >
             {labels[locale][item.key]}

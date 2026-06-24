@@ -21,6 +21,7 @@ export function ContactForm({ locale, title }: { locale: Locale; title: string }
         </div>
         <div className="mt-4 rounded-xl bg-[#102A43] p-4 text-white">
           <p className="font-semibold">{site.location}</p>
+          <p className="mt-1 text-sm text-slate-300">{locale === "en" ? "Serving GTA & Ontario" : "服务大多伦多地区与安省"}</p>
           <a className="mt-2 block text-sm font-bold text-teal-200 hover:text-white" href={`mailto:${site.email}`}>
             {site.email}
           </a>

@@ -106,9 +106,9 @@ function CaseStudies({ locale }: { locale: Locale }) {
               <p className="text-xs font-black uppercase tracking-wide text-teal">Concept 0{index + 1}</p>
               <h3 className="mt-3 text-xl font-bold leading-snug text-ocean">{title}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">{body}</p>
-              <Link href={`/${locale}/book`} className="mt-5 inline-flex text-sm font-bold text-teal hover:text-ocean">
+              <a href={site.calendlyUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex text-sm font-bold text-teal hover:text-ocean">
                 {locale === "en" ? "Discuss a similar workflow" : "咨询类似流程"}
-              </Link>
+              </a>
             </div>
           </article>
         ))}
@@ -207,9 +207,9 @@ function ConsultationCta({ locale }: { locale: Locale }) {
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200">{t.home.ctaBody}</p>
             <p className="mt-3 text-sm text-slate-200">{locale === "en" ? "Calendly-ready consultation section with email fallback." : "可接入 Calendly，也支持邮件咨询预约。"}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href={`/${locale}/book`} className="rounded-md bg-teal px-6 py-3 text-center font-bold text-white hover:bg-white hover:text-ocean">
+              <a href={site.calendlyUrl} target="_blank" rel="noopener noreferrer" className="rounded-md bg-teal px-6 py-3 text-center font-bold text-white hover:bg-white hover:text-ocean">
                 {locale === "en" ? "Book Now" : "立即预约"}
-              </Link>
+              </a>
               <a href={`mailto:${site.email}`} className="rounded-md border border-white/30 px-6 py-3 text-center font-bold text-white hover:bg-white/10">
                 {site.email}
               </a>
@@ -265,9 +265,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
               ))}
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href={`/${locale}/book`} className="rounded-md bg-teal px-6 py-3 text-center font-black text-white shadow-lg shadow-teal/15 hover:bg-ocean">
+              <a href={site.calendlyUrl} target="_blank" rel="noopener noreferrer" className="rounded-md bg-teal px-6 py-3 text-center font-black text-white shadow-lg shadow-teal/15 hover:bg-ocean">
                 {locale === "en" ? "Book Free Consultation" : "预约免费咨询"}
-              </Link>
+              </a>
               <Link href={`/${locale}/services`} className="rounded-md border border-[#086fd6] bg-white px-6 py-3 text-center font-black text-[#086fd6] shadow-sm hover:border-teal hover:text-teal">
                 {t.common.explore}
               </Link>

@@ -4,7 +4,8 @@ export type PageKey = "home" | "services" | "industries" | "resources" | "about"
 
 export const site = {
   baseUrl: "https://bridgeworkflowstudio.com",
-  email: "hello@bridgeworkflowstudio.com",
+  email: "bridgeworkflowstudio@gmail.com",
+  calendlyUrl: "https://calendly.com/bridgeworkflowstudio/20min",
   location: "Oakville, Ontario"
 };
 
@@ -15,7 +16,7 @@ export const nav: Record<Locale, { key: PageKey; label: string; href: string }[]
     { key: "industries", label: "Industries", href: "/en/industries" },
     { key: "resources", label: "Resources", href: "/en/resources" },
     { key: "about", label: "About", href: "/en/about" },
-    { key: "book", label: "Book a Consultation", href: "/en/book" },
+    { key: "book", label: "Book a Consultation", href: site.calendlyUrl },
     { key: "contact", label: "Contact", href: "/en/contact" }
   ],
   zh: [
@@ -24,7 +25,7 @@ export const nav: Record<Locale, { key: PageKey; label: string; href: string }[]
     { key: "industries", label: "行业", href: "/zh/industries" },
     { key: "resources", label: "资源", href: "/zh/resources" },
     { key: "about", label: "关于我们", href: "/zh/about" },
-    { key: "book", label: "预约咨询", href: "/zh/book" },
+    { key: "book", label: "预约咨询", href: site.calendlyUrl },
     { key: "contact", label: "联系", href: "/zh/contact" }
   ]
 };

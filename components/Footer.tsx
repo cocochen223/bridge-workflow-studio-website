@@ -26,7 +26,13 @@ export function Footer({ locale }: { locale: Locale }) {
           <p className="text-sm font-bold uppercase tracking-wide text-white/70">{locale === "en" ? "Pages" : "页面"}</p>
           <div className="mt-4 grid gap-3 text-sm">
             {nav[locale].map((item) => (
-              <Link key={item.href} href={item.href} className="text-slate-300 hover:text-white">
+              <Link
+                key={item.href}
+                href={item.href}
+                target={item.key === "book" ? "_blank" : undefined}
+                rel={item.key === "book" ? "noopener noreferrer" : undefined}
+                className="text-slate-300 hover:text-white"
+              >
                 {item.label}
               </Link>
             ))}
