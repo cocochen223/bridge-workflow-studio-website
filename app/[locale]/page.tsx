@@ -253,7 +253,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
       <section className="bg-[linear-gradient(135deg,#f7fbff_0%,#ffffff_48%,#eaf7fb_100%)]">
         <div className="mx-auto grid max-w-[1480px] items-center gap-10 px-5 py-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 lg:px-6 lg:py-14">
           <div className="reveal-card max-w-[600px]">
-            <p className="text-[15px] font-black uppercase tracking-[0.18em] text-teal">{hero.eyebrow}</p>
+            <p className="whitespace-nowrap text-[15px] font-black uppercase tracking-[0.14em] text-teal">{hero.eyebrow}</p>
             <h1 className="mt-4 max-w-[580px] text-[clamp(38px,3.8vw,56px)] font-black leading-[1.06] text-[#0D1B2A]">{hero.title}</h1>
             <p className="mt-5 max-w-[540px] text-lg leading-[1.55] text-slate-700">{hero.subtitle}</p>
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
@@ -300,10 +300,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
           </div>
         <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {t.home.problems.map((problem, index) => (
-            <article key={problem} className="reveal-card min-h-[150px] rounded-2xl border border-slate-200 bg-white px-7 py-6 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-slate-900/10">
-              <span className="text-lg font-black leading-none text-teal">0{index + 1}</span>
-              <p className="mt-2 text-[19px] font-bold leading-[1.4] text-ink">{problem}</p>
-            </article>
+          <article key={problem} className="reveal-card min-h-[118px] rounded-2xl border border-slate-200 bg-white px-7 py-5 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-slate-900/10">
+            <span className="text-lg font-black leading-none text-teal">0{index + 1}</span>
+            <p className="mt-2 text-lg font-bold leading-snug text-ocean">{problem}</p>
+          </article>
           ))}
         </div>
         </div>
