@@ -35,9 +35,9 @@ export function Header({ locale }: { locale: Locale }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 shadow-sm shadow-slate-900/5 backdrop-blur">
-      <div className="mx-auto flex h-[72px] max-w-[1480px] items-center justify-between gap-5 px-5 sm:px-8">
-        <Link href={`/${locale}`} className="flex min-w-[150px] items-center">
-          <Image src="/bridge-logo-new.png" alt="Bridge Workflow Studio" width={1000} height={660} className="h-[58px] w-auto object-contain" priority />
+      <div className="mx-auto flex h-[56px] max-w-[1480px] items-center justify-between gap-3 px-4 sm:h-[72px] sm:gap-5 sm:px-8">
+        <Link href={`/${locale}`} className="flex min-w-[116px] items-center sm:min-w-[150px]">
+          <Image src="/bridge-logo-new.png" alt="Bridge Workflow Studio" width={1000} height={660} className="h-[42px] w-auto object-contain sm:h-[58px]" priority />
         </Link>
         <nav className="hidden items-center gap-2 text-[16px] font-bold text-ink lg:flex">
           {nav[locale].map((item) => {
@@ -65,19 +65,19 @@ export function Header({ locale }: { locale: Locale }) {
         </nav>
         <Link
           href={`/${other}`}
-          className="shrink-0 rounded-md border border-slate-300 px-4 py-2.5 text-base font-bold text-ocean hover:border-teal hover:bg-mist hover:text-teal"
+          className="shrink-0 rounded-md border border-slate-300 px-3 py-2 text-sm font-bold text-ocean hover:border-teal hover:bg-mist hover:text-teal sm:px-4 sm:py-2.5 sm:text-base"
         >
           {labels[locale].switch}
         </Link>
       </div>
-      <nav className="flex gap-3 overflow-x-auto border-t border-slate-100 px-4 py-3 text-sm font-semibold text-slate-700 lg:hidden">
+      <nav className="flex max-w-full gap-1.5 overflow-x-auto border-t border-slate-100 px-3 py-2 text-[13px] font-semibold text-slate-700 lg:hidden">
         {nav[locale].map((item) => (
           <Link
             key={item.href}
             href={item.href}
             target={item.key === "book" ? "_blank" : undefined}
             rel={item.key === "book" ? "noopener noreferrer" : undefined}
-            className={item.key === "book" ? "whitespace-nowrap rounded bg-teal px-3 py-2 text-white" : "whitespace-nowrap rounded px-2 py-2 hover:bg-mist hover:text-teal"}
+            className={item.key === "book" ? "whitespace-nowrap rounded bg-teal px-2.5 py-1.5 text-white" : "whitespace-nowrap rounded px-2 py-1.5 hover:bg-mist hover:text-teal"}
           >
             {labels[locale][item.key]}
           </Link>
