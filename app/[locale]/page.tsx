@@ -89,24 +89,24 @@ function CaseStudies({ locale }: { locale: Locale }) {
           ["地产客户跟进系统", "支持线索收集、CRM 管道、预约提醒和实用 AI 内容辅助。"]
         ];
   const images = [
-    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80",
     "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80",
     "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80"
   ];
 
   return (
     <Section title={locale === "en" ? "Case Studies" : "客户案例"} subtitle={locale === "en" ? "Representative project concepts showing how practical systems can support real operations." : "以代表性项目场景展示系统如何支持真实业务运营。"} tone="mist">
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-3">
         {cases.map(([title, body], index) => (
-          <article key={title} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/10">
-            <div className="h-44 overflow-hidden">
+          <article key={title} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-slate-900/10">
+            <div className="h-36 overflow-hidden">
               <img src={images[index]} alt={title} className="h-full w-full object-cover" loading="lazy" />
             </div>
-            <div className="p-7">
-              <p className="text-sm font-black text-teal">0{index + 1}</p>
-              <h3 className="mt-4 text-xl font-bold text-ocean">{title}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{body}</p>
-              <Link href={`/${locale}/book`} className="mt-6 inline-flex text-sm font-bold text-teal hover:text-ocean">
+            <div className="p-6">
+              <p className="text-xs font-black uppercase tracking-wide text-teal">Concept 0{index + 1}</p>
+              <h3 className="mt-3 text-xl font-bold leading-snug text-ocean">{title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{body}</p>
+              <Link href={`/${locale}/book`} className="mt-5 inline-flex text-sm font-bold text-teal hover:text-ocean">
                 {locale === "en" ? "Discuss a similar workflow" : "咨询类似流程"}
               </Link>
             </div>
@@ -117,30 +117,39 @@ function CaseStudies({ locale }: { locale: Locale }) {
   );
 }
 
-function Testimonials({ locale }: { locale: Locale }) {
+function WhyWorkWithBridge({ locale }: { locale: Locale }) {
   const items =
     locale === "en"
       ? [
-          ["The process finally felt clear.", "The workflow assessment helped us see exactly where customer follow-up was breaking down."],
-          ["Practical, not overwhelming.", "We needed a simple system the team could use. The recommendations were realistic for a small business."],
-          ["Bilingual communication helped.", "It was easier to explain operations clearly and move from ideas to a practical plan."]
+          ["Bilingual Communication", "Clear support for Chinese and English-speaking business owners."],
+          ["Ontario & GTA Focus", "Local context for service businesses, operators, and growing teams."],
+          ["Small Business Friendly", "Practical scope, budget awareness, and systems your team can use."],
+          ["Practical Implementation", "Support that moves from advice into usable workflow improvements."],
+          ["Long-Term Partnership", "Systems designed to improve over time as your business grows."]
         ]
       : [
-          ["流程终于变清楚了。", "流程评估帮助我们看清客户跟进到底卡在哪里。"],
-          ["务实，不复杂。", "我们需要的是团队能真正使用的简单系统，建议很符合中小企业实际情况。"],
-          ["双语沟通很有帮助。", "能用中文把运营问题讲清楚，也更容易从想法推进到实际方案。"]
+          ["??????", "??????????????????????"],
+          ["?????????", "?????????????????????????"],
+          ["??????", "?????????????????"],
+          ["??????", "????????????????????????"],
+          ["??????", "??????????????????"]
         ];
 
   return (
-    <Section title={locale === "en" ? "Testimonials" : "客户评价"} subtitle={locale === "en" ? "Professional feedback cards ready for real client quotes as the business grows." : "预留专业评价展示模块，后续可替换为真实客户反馈。"}>
-      <div className="grid gap-6 md:grid-cols-3">
+    <Section
+      title={locale === "en" ? "Why Work With Bridge Workflow Studio" : "????? Bridge Workflow Studio"}
+      subtitle={
+        locale === "en"
+          ? "Practical support for owners who need clearer systems, better follow-up, and realistic digital improvements."
+          : "????????????????????????????????"
+      }
+    >
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         {items.map(([title, body]) => (
-          <article key={title} className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm shadow-slate-900/5">
-            <div className="text-4xl font-black text-teal">"</div>
-            <h3 className="mt-2 text-lg font-bold text-ocean">{title}</h3>
-            <p className="mt-4 text-sm leading-7 text-slate-600">{body}</p>
-            <div className="mt-6 h-px bg-slate-200" />
-            <p className="mt-4 text-sm font-bold text-slate-500">{locale === "en" ? "Small Business Owner" : "中小企业主"}</p>
+          <article key={title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-teal/10 text-sm font-black text-teal ring-1 ring-teal/20">?</div>
+            <h3 className="mt-4 text-base font-bold leading-snug text-ocean">{title}</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">{body}</p>
           </article>
         ))}
       </div>
@@ -244,7 +253,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         />
       </Section>
 
-      <section className="bg-white py-10">
+      <section className="bg-[#EEF4F7] py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold leading-tight text-ink sm:text-[2.25rem]">{t.home.problemsTitle}</h2>
@@ -266,7 +275,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
       </Section>
 
       <CaseStudies locale={locale} />
-      <Testimonials locale={locale} />
+      <WhyWorkWithBridge locale={locale} />
       <ConsultationCta locale={locale} />
     </>
   );

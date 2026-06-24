@@ -11,10 +11,75 @@ const industryImages = [
   "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80"
 ];
 
+function ServiceIcon({ label }: { label: string }) {
+  const common = {
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.8,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const
+  };
+
+  if (label === "AI") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path {...common} d="M8 10h8M8 14h5" />
+        <path {...common} d="M7 18.5 4.5 21v-4.5A6.5 6.5 0 0 1 3 12a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7 7 7 0 0 1-7 7h-4a8 8 0 0 1-3-.5Z" />
+      </svg>
+    );
+  }
+
+  if (label === "DT") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path {...common} d="M4 19V5M4 19h16" />
+        <path {...common} d="m7 15 3.5-3.5 3 3L20 8" />
+        <path {...common} d="M17 8h3v3" />
+      </svg>
+    );
+  }
+
+  if (label === "CRM") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path {...common} d="M16 19c0-2-1.8-3.5-4-3.5S8 17 8 19" />
+        <path {...common} d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+        <path {...common} d="M4.5 18c.2-1.5 1.2-2.7 2.6-3.3" />
+        <path {...common} d="M19.5 18c-.2-1.5-1.2-2.7-2.6-3.3" />
+      </svg>
+    );
+  }
+
+  if (label === "WEB") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <rect {...common} x="4" y="5" width="16" height="13" rx="2" />
+        <path {...common} d="M4 9h16M8 13h4M8 16h7" />
+      </svg>
+    );
+  }
+
+  if (label === "FD") {
+    return (
+      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+        <path {...common} d="M7 3.5h7l3 3V20a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 6 20V5A1.5 1.5 0 0 1 7.5 3.5Z" />
+        <path {...common} d="M14 3.5V7h3M9 12h6M9 15h6M9 18h3" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+      <path {...common} d="M4 7h5v5H4zM15 4h5v5h-5zM15 15h5v5h-5z" />
+      <path {...common} d="M9 9.5h3.5a3 3 0 0 0 3-3V6M9 9.5h3.5a3 3 0 0 1 3 3V15" />
+    </svg>
+  );
+}
+
 export function IconBadge({ label }: { label: string }) {
   return (
-    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-xs font-black text-teal shadow-lg ring-1 ring-slate-200">
-      {label}
+    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-teal/10 text-teal ring-1 ring-teal/20">
+      <ServiceIcon label={label} />
     </span>
   );
 }
@@ -50,20 +115,20 @@ export function ServiceCards({
       {items.map((item) => (
         <article
           key={item.title}
-          className="group flex min-h-[380px] flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/40 hover:shadow-2xl hover:shadow-slate-900/10"
+          className="group flex min-h-[320px] flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/40 hover:shadow-xl hover:shadow-slate-900/10"
         >
           <IconBadge label={item.icon} />
-          <h3 className="mt-5 text-xl font-bold text-ocean">{item.title}</h3>
-          <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
-          <ul className="mt-5 space-y-2 text-sm text-slate-700">
-            {item.points.slice(0, 4).map((point) => (
+          <h3 className="mt-4 text-lg font-bold leading-snug text-ocean">{item.title}</h3>
+          <p className="mt-2.5 text-sm leading-6 text-slate-600">{item.description}</p>
+          <ul className="mt-4 space-y-1.5 text-sm text-slate-700">
+            {item.points.slice(0, 3).map((point) => (
               <li key={point} className="flex gap-2">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />
                 <span>{point}</span>
               </li>
             ))}
           </ul>
-          <Link href={`/${locale}/services`} className="mt-auto pt-6 text-sm font-bold text-teal group-hover:text-ocean">
+          <Link href={`/${locale}/services`} className="mt-auto pt-5 text-sm font-bold text-teal group-hover:text-ocean">
             {learnMore}
           </Link>
         </article>
