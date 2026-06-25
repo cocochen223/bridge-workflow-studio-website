@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 
 function DashboardMockup({ locale }: { locale: Locale }) {
   return (
-    <div className="mx-auto w-full max-w-[760px]">
+    <div className="mx-auto w-full max-w-[760px] lg:max-w-[900px] xl:max-w-[960px]">
       <img
         src="/hero-dashboard-laptop.png"
         alt={locale === "en" ? "Laptop showing Bridge Workflow Studio workflow dashboard" : "Bridge Workflow Studio workflow dashboard on a laptop"}
@@ -62,7 +62,7 @@ function Stats({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white py-7">
-      <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-[1480px] gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
         {stats.map(([number, title, body]) => (
           <div key={title} className="reveal-card rounded-2xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:border-teal/30 hover:shadow-lg hover:shadow-slate-900/10 sm:p-5">
             <p className="text-2xl font-black leading-none text-teal sm:text-3xl">{number}</p>
@@ -199,7 +199,7 @@ function ConsultationCta({ locale }: { locale: Locale }) {
 
   return (
     <section className="bg-white px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-[#102A43] text-white shadow-2xl shadow-slate-900/20">
+      <div className="mx-auto max-w-[1480px] overflow-hidden rounded-3xl bg-[#102A43] text-white shadow-2xl shadow-slate-900/20">
         <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
           <div className="p-8 sm:p-10 lg:p-12">
             <p className="text-sm font-bold uppercase tracking-wide text-teal-100">Book a Free Consultation</p>
@@ -251,8 +251,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#f7fbff_0%,#ffffff_48%,#eaf7fb_100%)]">
-        <div className="mx-auto grid max-w-[1480px] min-w-0 items-center gap-8 px-4 py-9 sm:px-5 sm:py-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12 lg:px-6 lg:py-14">
-          <div className="reveal-card min-w-0 max-w-[600px]">
+        <div className="mx-auto grid max-w-[1640px] min-w-0 items-center gap-8 px-4 py-9 sm:px-5 sm:py-12 lg:grid-cols-[0.84fr_1.16fr] lg:gap-14 lg:px-10 lg:py-14 xl:px-12">
+          <div className="reveal-card min-w-0 max-w-[620px]">
             <p className="max-w-full text-[13px] font-black uppercase leading-6 tracking-[0.1em] text-teal sm:whitespace-nowrap sm:text-[15px] sm:tracking-[0.14em]">{hero.eyebrow}</p>
             <h1 className="mt-3 max-w-[580px] text-[clamp(34px,10vw,48px)] font-black leading-[1.08] text-[#0D1B2A] sm:mt-4 lg:text-[clamp(38px,3.8vw,56px)]">{hero.title}</h1>
             <p className="mt-4 max-w-[540px] text-base leading-[1.55] text-slate-700 sm:mt-5 sm:text-lg">{hero.subtitle}</p>
@@ -293,7 +293,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
       </Section>
 
       <section className="bg-[#EEF4F7] py-6">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-8">
           <div className="max-w-[1100px]">
             <h2 className="text-3xl font-bold leading-tight text-ink sm:text-[2.25rem]">{t.home.problemsTitle}</h2>
             <p className="mt-3 max-w-[1100px] whitespace-normal text-xl leading-[1.5] text-slate-600">{t.home.problemsSubtitle}</p>
