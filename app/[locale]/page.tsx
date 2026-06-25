@@ -198,10 +198,10 @@ function ConsultationCta({ locale }: { locale: Locale }) {
   const t = copy[locale];
 
   return (
-    <section className="bg-white px-4 py-8 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1480px] overflow-hidden rounded-3xl bg-[#102A43] text-white shadow-2xl shadow-slate-900/20">
         <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="p-8 sm:p-10 lg:p-12">
+          <div className="p-8 sm:p-9 lg:p-10">
             <p className="text-sm font-bold uppercase tracking-wide text-teal-100">Book a Free Consultation</p>
             <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">{t.home.ctaTitle}</h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200">{t.home.ctaBody}</p>
@@ -214,9 +214,8 @@ function ConsultationCta({ locale }: { locale: Locale }) {
                 {site.email}
               </a>
             </div>
-            <p className="mt-6 text-sm text-slate-300">{locale === "en" ? "Based in Canada · Remote collaboration worldwide" : "位于加拿大 · 支持远程协作与全球合作"}</p>
           </div>
-          <div className="relative min-h-[320px]">
+          <div className="relative min-h-[280px]">
             <img
               src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=900&q=85"
               alt={locale === "en" ? "Consultation call" : "商务咨询预约"}
